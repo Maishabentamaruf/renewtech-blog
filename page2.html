@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Post</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>RenewTech</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Threaded Discussion Forum</a>
+        <a href="#">Shopping Cart</a>
+        <a href="index.html">Blog</a>
+        <a href="#">Product Review & Rating</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <a href="index.html" class="back-link">← Back to Blog</a>
+
+    <h2>Create a New Post</h2>
+
+    <label>Title:</label>
+    <input type="text" placeholder="Enter the title of your blog post">
+
+    <div class="row">
+        <div class="left">
+            <label>Content:</label>
+            <textarea></textarea>
+        </div>
+
+        <div class="right" onclick="document.getElementById('imageInput').click()">
+            + Add Image
+        </div>
+    </div>
+
+    <input type="file" id="imageInput" style="display:none;" accept="image/*" multiple>
+
+    <div class="image-note">Maximum 3 images</div>
+    <div class="preview-container" id="previewContainer"></div>
+
+    <label>Tags:</label>
+    <input type="text" placeholder="Add tags & press enter">
+
+    <div class="tags">
+        <span>Laptop Tips</span>
+        <span>Budget Tech</span>
+        <span>Eco-Friendly</span>
+    </div>
+
+    <p>Save Options:</p>
+
+    <div class="save-options">
+        <label class="option">
+            <input type="radio" name="saveOption">
+            Save as Draft
+        </label>
+
+        <label class="option">
+            <input type="radio" name="saveOption" checked>
+            Publish Immediately
+        </label>
+    </div>
+
+    <div class="buttons">
+        <button class="submit">Create Post</button>
+        <button class="cancel" onclick="window.location.href='index.html'">Cancel</button>
+    </div>
+
+</div>
+
+<script>
+const input = document.getElementById('imageInput');
+const preview = document.getElementById('previewContainer');
+let images = [];
+
+input.addEventListener('change', function(e) {
+    const files = Array.from(e.target.files);
+
+    if (images.length + files.length > 3) {
+        alert("Max 3 images");
+        return;
+    }
+
+    files.forEach(file => images.push(file));
+    render();
+});
+
+function render() {
+    preview.innerHTML = "";
+
+    images.forEach((file, index) => {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const box = document.createElement('div');
+            box.innerHTML = `
+                <img src="${e.target.result}">
+                <button class="remove-btn" onclick="remove(${index})">Remove</button>
+            `;
+            preview.appendChild(box);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+function remove(i) {
+    images.splice(i, 1);
+    render();
+}
+</script>
+
+</body>
+</html>

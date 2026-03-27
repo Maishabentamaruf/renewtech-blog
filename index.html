@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RenewTech Blog</title>
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- your css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>RenewTech</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Threaded Discussion Forum</a>
+        <a href="#">Shopping Cart</a>
+        <a href="#" class="active">Blog</a>
+        <a href="#">Product Review & Rating</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<!-- FEATURED BLOG -->
+<div class="featured-box">
+
+    <div class="featured-header">
+        <h2>Featured Blog Post</h2>
+        <a href="page2.html">
+    <button class="create-post-btn">Create New Post</button>
+</a>
+    </div>
+
+    <div class="post">
+    <img src="images/slow-laptop.jpg" alt="slow laptop">
+
+    <div class="post-content">
+        <h3>5 Easy Fixes for Slow Laptops</h3>
+        <p><strong>Author:</strong> Aisha Rahman</p>
+        <p><strong>Summary:</strong> Simple steps like cleaning storage and updating software.</p>
+    </div>
+</div>
+    <!-- hidden extra content -->
+    <div class="extra-content" id="moreText" style="display:none;">
+    <p>This blog explains deeper techniques like removing background apps, upgrading RAM, and optimizing system settings.</p>
+    <p>You will also learn how to manage startup programs, clear temporary files, and improve battery efficiency.</p>
+    <p>These simple but powerful methods can significantly boost your laptop performance without spending money.</p>
+</div>
+
+    <a href="#" onclick="toggleText()">Read More</a>
+
+</div>
+
+<!-- SEARCH + CATEGORY -->
+<div class="search-box">
+    <input type="text" placeholder="Search by title or keywords">
+
+    <div class="categories">
+        Categories:
+        <a href="#">All</a> |
+        <a href="#">Laptop Tips</a> |
+        <a href="#">Repair Guides</a> |
+        <a href="#">Sustainability</a>
+    </div>
+</div>
+
+<!-- BLOG POSTS -->
+<div class="blog-container">
+
+    <h2>Blog Posts</h2>
+
+    <div class="blog-card post">
+    <img src="images/long-laptop.jpg" alt="long laptop">
+
+    <div class="post-content">
+        <h3>How to Make Your Laptop Last 5+ Years</h3>
+        <p><strong>Author:</strong> Maisha Benta Maruf</p>
+        <p><strong>Summary:</strong> Proper charging, cleaning, and updates help lifespan.</p>
+        <a href="#">Read More</a> | <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+</div>
+
+    <div class="blog-card post">
+    <img src="images/slow-laptop.jpg" alt="slow laptop">
+
+    <div class="post-content">
+        <h3>5 Easy Fixes for Slow Laptops</h3>
+        <p><strong>Author:</strong> Aisha Rahman</p>
+        <p><strong>Summary:</strong> Improve speed without spending money.</p>
+        <a href="#">Read More</a> | <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+</div>
+
+    <div class="blog-card post">
+    <img src="images/refurbished.jpg" alt="refurbished tech">
+
+    <div class="post-content">
+        <h3>Why Refurbished Tech is Worth It?</h3>
+        <p><strong>Author:</strong> Noah Williams</p>
+        <p><strong>Summary:</strong> Cheaper and reduces electronic waste.</p>
+        <a href="#">Read More</a> | <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+</div>
+
+<!-- SIMPLE JS FOR READ MORE -->
+<script>
+function toggleText() {
+    var text = document.getElementById("moreText");
+    var link = event.target;
+
+    if (text.style.display === "none") {
+        text.style.display = "block";
+        link.innerText = "Read Less";
+    } else {
+        text.style.display = "none";
+        link.innerText = "Read More";
+    }
+}
+</script>
+
+</body>
+</html>
